@@ -1,24 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
-
+import ViewWorkout from './Components/ViewWorkout';
+import AddWorkout from './Components/AddWorkout';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+import Header from './Components/Header';
+import GraphView from './Components/GraphView';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+        <BrowserRouter>
+        <Header/>
+      <Routes>
+        <Route path="/" element={<ViewWorkout />} />
+        <Route path="add" element={<AddWorkout />} />
+        <Route path="graph" element={<GraphView/>} />
+        {/* <Route path="update/:id" element={<UpdateEmployee />} /> */}
+      </Routes>
+        </BrowserRouter>
   );
 }
 
